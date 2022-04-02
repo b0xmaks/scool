@@ -1,4 +1,4 @@
-FROM tomcat:8.5.78-jre8-openjdk
+FROM tomcat:9.0
 ENV TZ=Europe/Moscow
 EXPOSE 8080
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone; \
