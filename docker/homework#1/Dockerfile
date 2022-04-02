@@ -2,7 +2,7 @@ FROM tomcat:8.5.78-jre8-openjdk
 ENV TZ=Europe/Moscow
 EXPOSE 8080
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone; \
-    apt update && apt upgrade -y && apt install git maven -y; \
+    apt update && apt upgrade -y && apt install git default-jdk maven -y; \
     cd /tmp; \
     git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
 WORKDIR /tmp/boxfuse-sample-java-war-hello/
