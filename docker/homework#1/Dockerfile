@@ -1,4 +1,4 @@
-FROM maven:eclipse-temurin3.8.4-eclipse-temurin-8
+FROM maven
 ENV TZ=Europe/Moscow
 EXPOSE 8080
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone; \
