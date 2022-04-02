@@ -1,4 +1,5 @@
 FROM ubuntu:20.04
+ENV TZ=Europe/Moscow
 RUN apt update && apt upgrade -y && apt install git default-jdk tomcat9 maven -y
 EXPOSE 8080
 RUN cd /tmp
