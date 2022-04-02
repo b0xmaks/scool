@@ -1,7 +1,7 @@
-FROM ubuntu:20.04
+FROM maven:eclipse-temurin
 ENV TZ=Europe/Moscow
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-RUN apt update && apt upgrade -y && apt install git default-jdk tomcat9 maven -y
+RUN apt update && apt upgrade -y && apt install git tomcat9 -y
 EXPOSE 8080
 RUN cd /tmp
 RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git 
