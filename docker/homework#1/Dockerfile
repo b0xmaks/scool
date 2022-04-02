@@ -1,5 +1,5 @@
 FROM ubuntu:20.04
-RUN apt update && apt upgrade -y && apt install default-jdk tomcat9 maven -y
+RUN apt update && apt upgrade -y && apt install git default-jdk tomcat9 maven -y
 EXPOSE 8080
 RUN cd /tmp
 RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git 
