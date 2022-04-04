@@ -5,4 +5,4 @@ WORKDIR /opt/webapp
 COPY requirements.txt
 RUN pip install -r /requirements.txt
 ADD app.py
-CMD app.py
+CMD ["python", "app.py"]
