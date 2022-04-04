@@ -4,4 +4,5 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y -q python-all python-pip
 WORKDIR /opt/webapp
 COPY requirements.txt
 RUN pip install -r /requirements.txt
-COPY app.py
+ADD app.py
+CMD app.py
