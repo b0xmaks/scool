@@ -1,0 +1,18 @@
+---
+#Employee records
+- Ivan:
+    name: Ivan
+    job: Developer
+    skills:
+      - Puthon
+      - Perl
+      - Pascal
+
+- Vasya:
+    name: Vasya Popov
+    job: Developer
+    skills:
+      - Lisp
+      - Fortran
+      - C
+---
