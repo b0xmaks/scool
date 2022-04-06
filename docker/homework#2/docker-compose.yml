@@ -10,7 +10,7 @@ services:
     volumes:
       - type: volumes
         source: readyapp
-        target: /makeapp
+        target: /makeapp/target/
        
   run:
     build:
@@ -19,7 +19,7 @@ services:
       - "8080:80"
     volumes:
       - type: volumes
-        source: readyapp/makeapp/target/
+        source: readyapp
         target: /opt/tomcat/webapp
     
           
