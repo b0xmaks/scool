@@ -13,8 +13,6 @@ services:
         target: /makeapp
        
   run:
-    depends_on:
-      - bld
     build:
       context: run/
     ports:
