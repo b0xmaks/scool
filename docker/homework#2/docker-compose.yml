@@ -13,6 +13,8 @@ services:
         target: /makeapp
        
   run:
+    depends_on:
+      - bld
     build:
       context: run/
     ports:
@@ -21,6 +23,7 @@ services:
       - type: volumes
         source: readyapp
         target: /makeapp/target
+    
           
 volumes:
   readyapp:
