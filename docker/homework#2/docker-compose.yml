@@ -1,22 +1,27 @@
 ---
 version: '3.8'
+
 services:
-  context: /build
-    bld:
-      image: maven:latest
-      links:
+  bld:
+    build:   
+      context: build/
+    links:
         - run
-      ports:
-        - 80:8080
-      volumes:
-        - type: volumes
-          source: readyapp
-          target: /makeapp
-
+    volumes:
+      - type: volumes
+        source: readyapp
+        target: /makeapp
+       
   run:
-    context: /run
-      image: 
-
+    build:
+      context: run/
+    ports:
+      - 8080:80
+    volumes:
+      - type: volumes
+        source: readyapp
+        target: /makeapp/target
+          
 volumes:
   readyapp:
 
