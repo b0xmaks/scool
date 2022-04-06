@@ -8,4 +8,3 @@ RUN apk update \
  && wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.62/bin/apache-tomcat-9.0.62.tar.gz \
  && tar xvzf apache-tomcat-9.0.62.tar.gz --strip-components 1 --directory /opt/tomcat 
 CMD ["catalina.sh", "run"]
-RUN cp /makeapp/taget/*.war  /opt/tomcat/webapps
