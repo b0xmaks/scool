@@ -1,17 +1,6 @@
 ---
 version: '3.8'
-
 services:
-  bld:
-    build:   
-      context: build/
-    links:
-        - run
-    volumes:
-      - type: volume
-        source: readyapp
-        target: /makeapp
-       
   run:
     build:
       context: run/
@@ -22,8 +11,16 @@ services:
     volumes:
       - type: volume
         source: readyapp
-        target: /usr/local/tomcat/webapps/
-    
-          
+        target: /usr/local/tomcat/webapps/  
+  bld:
+    build:   
+      context: build/
+    links:
+        - run
+    volumes:
+      - type: volume
+        source: readyapp
+        target: /makeapp
+       
 volumes:
   readyapp:
