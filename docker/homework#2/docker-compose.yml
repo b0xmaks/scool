@@ -6,8 +6,8 @@ services:
       context: run/
     ports:
       - "8080:8080"
-    links:
-      - bld
+    networks:
+      - in1
     depends_on:
       - bld
     volumes:
@@ -17,10 +17,11 @@ services:
   bld:
     build:   
       context: build/
+    networks:
+      - in1
     volumes:
       - type: volume
         source: readyapp
         target: /makeapp
-       
 volumes:
   readyapp:
