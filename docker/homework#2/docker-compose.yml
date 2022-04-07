@@ -8,10 +8,6 @@ services:
       - "8080:8080"
     depends_on:
       - bld
-    networks:
-      main:
-        aliases:
-          - run
     volumes:
       - type: volume
         source: readyapp
@@ -21,10 +17,6 @@ services:
       context: build/
     links:
         - run
-    networks:
-      main:
-        aliases:
-          - bld
     volumes:
       - type: volume
         source: readyapp
