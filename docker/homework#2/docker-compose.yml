@@ -19,8 +19,8 @@ services:
       - "8080:80"
     volumes:
       - type: volume
-        source: readyapp
-        target: /opt/tomcat/webapp
+        source: readyapp/makeapp/target/
+        target: /usr/local/tomcat/webapps/
     
           
 volumes:
