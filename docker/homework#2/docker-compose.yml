@@ -3,7 +3,7 @@ version: '3.8'
 services:
   run:
     build:
-      context: run/
+      image: tomcat:9.0.20-jre8-alpine
     ports:
       - "8080:8080"
     depends_on:
