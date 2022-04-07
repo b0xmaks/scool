@@ -6,6 +6,8 @@ services:
       context: run/
     ports:
       - "8080:8080"
+    links:
+      - bld
     depends_on:
       - bld
     volumes:
@@ -15,8 +17,6 @@ services:
   bld:
     build:   
       context: build/
-    links:
-        - run
     volumes:
       - type: volume
         source: readyapp
