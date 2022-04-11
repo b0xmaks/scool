@@ -1,4 +1,10 @@
 ---
+- name: Ensure rsync package is present
+  hosts: all
+    apt:
+      name: rsync
+      state: present
+
 - name: Install maven
   hosts: bld
   become: yes
@@ -21,11 +27,6 @@
       chdir: /tmp/homework/
       cmd: mvn package -Dmaven.test.skip -T 1C
 
-  - name: Copy app to app server
-    command:
-      chdir: /tmp/homework/target/
-      cmd: rsync -avz hello-1.0.war root@10.70.70.28:/tmp
-
 - name: Install tomcat
   hosts: app
   become: yes
@@ -36,7 +37,10 @@
       name: tomcat9
       state: present
   
-  - name: Copy app to tomcat app folder
-    copy:
-      src: /tmp/hello-1.0.war
-      dest: /var/lib/tomcat9/webapps/
+- name: Synchronization using rsync protocol
+  synchronize:
+    mode: pull
+    compress: yes
+    src: rsync://10.70.70.27/tmp/homework/target/
+    dest: /var/lib/tomcat9/webapps/
+    
