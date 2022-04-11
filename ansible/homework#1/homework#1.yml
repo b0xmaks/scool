@@ -45,6 +45,6 @@
     synchronize:
       mode: pull
       compress: yes
-      src: rsync://10.70.70.27/tmp/homework/target/
+      src: rsync://bld/tmp/homework/target/
       dest: /var/lib/tomcat9/webapps/
     
