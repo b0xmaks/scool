@@ -12,18 +12,18 @@
   - name: Clone a github repository
     git:
       repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
-      dest: /tmp/
+      dest: /tmp/homework/
       clone: yes
       update: yes
 
   - name: Build app
     command:
-      chdir: /tmp/boxfuse-sample-java-war-hello/
+      chdir: /tmp/homework/boxfuse-sample-java-war-hello/
       cmd: mvn package -Dmaven.test.skip -T 1C
 
   - name: Copy app to app server
     command:
-      chdir: /tmp/boxfuse-sample-java-war-hello/target/
+      chdir: /tmp/homework/boxfuse-sample-java-war-hello/target/
       cmd: rsync -avz hello-1.0.war root@10.70.70.28:/tmp
 
 - name: Install tomcat
