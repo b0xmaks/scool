@@ -24,6 +24,9 @@
         update: yes
 
     - name: build infrastructure
-      docker-compose:
+      docker_compose:
         project_src: /tmp/homework/docker/homework#2/
+        files:
+          - docker-compose.yml
+        register: output
 
