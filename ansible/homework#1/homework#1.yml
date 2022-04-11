@@ -1,5 +1,5 @@
 ---
-- name: install maven
+- name: Install maven
   hosts: bld
   become: yes
 
@@ -26,7 +26,7 @@
       chdir: /tmp/boxfuse-sample-java-war-hello/target/
       cmd: rsync -avz hello-1.0.war root@10.70.70.28:/tmp
 
-- name: install tomcat
+- name: Install tomcat
   hosts: app
   become: yes
 
