@@ -19,18 +19,8 @@
       name: nginx
       state: started
 
-
-- name: install db
-  hosts: db
-  become: yes
-
-  tasks:
-  - name: Ensure postgresql is present
-    apt:
-      name: postgresql
-      state: present
-
-  - name: Ensure postgresql service is started
-    service:
-      name: nginx
-      state: started
+  - name: Ensure SELinux is set to enforcing mode
+    ansible.builtin.lineinfile:
+      path: /etc/selinux/config
+      regexp: '^This is the title of the webpage!'
+      line: <p><script> document.write(new Date().toLocaleDateString()); </script></p>

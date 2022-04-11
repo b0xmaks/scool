@@ -10,32 +10,32 @@
         state: present
         update_cache: yes
 
-    - name: install python3-docker
+      tasks:
+    - name: Ensure maven package is present
       apt:
-        name: python3-docker
+        name: maven
         state: present
-        update_cache: yes        
 
-    - name: download docker-compose
-      get_url: 
-        force: yes
-        url: https://github.com/docker/compose/releases/download/v2.4.1/docker-compose-linux-x86_64
-        dest: /usr/local/bin/docker-compose
-        mode: 'u+x,g+x'
-    
     - name: Clone a github repository
       git:
-        repo: https://github.com/b0xmaks/scool.git
+        repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
         dest: /tmp/homework/
         clone: yes
         update: yes
 
-    - name: build infrastructure
-      docker_compose:
-        api_version: '3' 
-        project_name: homework_ans_do
-        project_src: /tmp/homework/docker/homework#2/
-        files:
-          - docker-compose.yml
-        ansible_python_interpreter: /bin/python3
+    - name: Build application
+      command:
+        chdir: /tmp/homework/
+        cmd: mvn package -Dmaven.test.skip -T 1C
+
+    - name: build image
+      community.docker.docker_image:
+        name: tomcat/9.0.20-jre8-alpine
+        source: pull
+        ports:
+          - "8080:8080"
+        volumes:
+          - type: volume
+            source: readyapp
+            target: /usr/local/tomcat/webapps
 
