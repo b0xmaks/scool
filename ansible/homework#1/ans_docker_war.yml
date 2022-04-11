@@ -31,5 +31,4 @@
         project_src: /tmp/homework/docker/homework#2/
         files:
           - docker-compose.yml
-        register: output
 
