@@ -44,5 +44,5 @@
   - name: Synchronization using rsync protocol
     synchronize:
       mode: pull
-      src: rsync://user@10.70.70.27:/tmp/homework/target/
+      src: rsync://@10.70.70.27/tmp/homework/target/
       dest: /var/lib/tomcat9/webapps/
