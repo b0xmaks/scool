@@ -26,6 +26,8 @@
 
     - name: build infrastructure
       docker_compose:
+        api_version: 3 
+        project_name: homework_ans_do
         project_src: /tmp/homework/docker/homework#2/
         files:
           - docker-compose.yml
