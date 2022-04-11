@@ -38,5 +38,5 @@
   tasks:
   - name: Ensure tomcat package is present
     apt:
-      name: tomcat9
+      name: tomcat
       state: present
