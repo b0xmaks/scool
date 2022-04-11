@@ -34,7 +34,7 @@
 - name: Install tomcat && pull artifact
   hosts: run
   become: yes
-  
+
   tasks:
   - name: Ensure tomcat package is present
     apt:
@@ -44,6 +44,5 @@
   - name: Synchronization using rsync protocol
     synchronize:
       mode: pull
-      compress: yes
-      src: rsync://10.70.70.27/tmp/homework/target/
+      src: rsync://user@10.70.70.27:/tmp/homework/target/
       dest: /var/lib/tomcat9/webapps/
