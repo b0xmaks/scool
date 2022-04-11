@@ -10,9 +10,9 @@
         state: present
         update_cache: yes
 
-    - name: install python
+    - name: install python3-docker
       apt:
-        name: python
+        name: python3-docker
         state: present
         update_cache: yes        
 
@@ -37,4 +37,5 @@
         project_src: /tmp/homework/docker/homework#2/
         files:
           - docker-compose.yml
+
 
