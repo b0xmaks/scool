@@ -1,6 +1,10 @@
 ---
 - name: Ensure rsync package is present
   hosts: all
+  become: yes
+  tasks:
+  
+  - name: Ensure rsync package is present
     apt:
       name: rsync
       state: present
