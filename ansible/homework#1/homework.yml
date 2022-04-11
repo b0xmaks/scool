@@ -15,7 +15,28 @@
       dest: /tmp/
       clone: yes
       update: yes
+
   - name: Build app
     command:
       chdir: /tmp/boxfuse-sample-java-war-hello/
       cmd: mvn package -Dmaven.test.skip -T 1C
+
+  - name: Copy app to app server
+    command:
+      chdir: /tmp/boxfuse-sample-java-war-hello/target/
+      cmd: rsync -avz hello-1.0.war root@10.70.70.28:/tmp
+
+- name: install tomcat
+  hosts: app
+  become: yes
+
+  tasks:
+  - name: Ensure tomcat package is present
+    apt:
+      name: tomcat
+      state: present
+  
+  - name: Copy app to tomcat app folder
+    copy:
+      src: /tmp/hello-1.0.war
+      dest: /var/lib/tomcat9/webapps/
