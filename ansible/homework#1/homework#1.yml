@@ -2,6 +2,7 @@
 - name: Ensure rsync package is present
   hosts: all
   become: yes
+  gather_facts: false
   tasks:
   
   - name: Ensure rsync package is present
@@ -12,6 +13,7 @@
 - name: Install maven
   hosts: bld
   become: yes
+  gather_facts: false
 
   tasks:
   - name: Ensure maven package is present
@@ -34,6 +36,7 @@
 - name: Install tomcat && pull artifact
   hosts: run
   become: yes
+  gather_facts: false
 
   tasks:
   - name: Ensure tomcat package is present
