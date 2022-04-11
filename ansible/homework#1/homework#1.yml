@@ -18,12 +18,12 @@
 
   - name: Build app
     command:
-      chdir: /tmp/homework/boxfuse-sample-java-war-hello/
+      chdir: /tmp/homework/
       cmd: mvn package -Dmaven.test.skip -T 1C
 
   - name: Copy app to app server
     command:
-      chdir: /tmp/homework/boxfuse-sample-java-war-hello/target/
+      chdir: /tmp/homework/target/
       cmd: rsync -avz hello-1.0.war root@10.70.70.28:/tmp
 
 - name: Install tomcat
