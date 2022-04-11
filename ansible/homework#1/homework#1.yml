@@ -4,7 +4,7 @@
   become: yes
   gather_facts: false
   tasks:
-  
+
   - name: Ensure rsync package is present
     apt:
       name: rsync

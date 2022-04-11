@@ -1,0 +1,28 @@
+---
+- name: prepare infrastructure
+  hosts: bld
+  become: yes
+  gather_facts: false
+  tasks:
+    - name: install docker.io
+      apt:
+        name: docker.io
+        state: present
+        update_cache: yes
+
+    - name: download docker-compose
+      get_url: https://github.com/docker/compose/releases/download/v2.4.1/docker-compose-linux-x86_64
+      dest: /usr/local/bin/docker-compose
+      mode: 'u+x,g+x'
+    
+    - name: Clone a github repository
+      git:
+        repo: https://github.com/b0xmaks/scool.git
+        dest: /tmp/homework/
+        clone: yes
+        update: yes
+
+    - name: build infrastructure
+      docker-compose:
+        project_src: /tmp/homework/docker/homework#2/
+        files: docker-compose.yml
