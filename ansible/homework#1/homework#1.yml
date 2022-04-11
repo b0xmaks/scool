@@ -40,11 +40,3 @@
     apt:
       name: tomcat9
       state: present
-      
-  - name: Pull artifact to webapps
-    synchronize:
-      mode: pull
-      compress: yes
-      src: rsync://10.70.70.27/tmp/homework/target/
-      dest: /var/lib/tomcat9/webapps/
-    
