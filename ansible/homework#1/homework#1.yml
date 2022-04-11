@@ -33,13 +33,14 @@
 
 - name: Install tomcat && pull artifact
   hosts: run
+  become: yes
   
   tasks:
   - name: Ensure tomcat package is present
     apt:
       name: tomcat9
       state: present
-      
+
   - name: Synchronization using rsync protocol
     synchronize:
       mode: pull
