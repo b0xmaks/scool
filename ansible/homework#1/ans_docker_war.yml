@@ -10,9 +10,9 @@
         state: present
         update_cache: yes
 
-    - name: install python3-pip
+    - name: install python
       apt:
-        name: python3-pip
+        name: python
         state: present
         update_cache: yes        
 
