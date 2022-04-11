@@ -4,9 +4,9 @@
   become: yes
   gather_facts: false
   tasks:
-    - name: install docker
+    - name: install docker.io
       apt:
-        name: docker
+        name: docker.io
         state: present
         update_cache: yes
 
