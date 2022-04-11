@@ -32,11 +32,17 @@
       cmd: mvn package -Dmaven.test.skip -T 1C
 
 - name: Install tomcat && pull artifact
-  hosts: app
-  become: yes
-
+  hosts: run
+  
   tasks:
   - name: Ensure tomcat package is present
     apt:
-      name: tomcat
+      name: tomcat9
       state: present
+      
+  - name: Synchronization using rsync protocol
+    synchronize:
+      mode: pull
+      compress: yes
+      src: rsync://10.70.70.27/tmp/homework/target/
+      dest: /var/lib/tomcat9/webapps/
