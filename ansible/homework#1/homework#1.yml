@@ -41,7 +41,11 @@
       name: tomcat9
       state: present
   
-  - name: Synchronization using rsync protocol
+- name: Synchronization using rsync protocol
+  hosts: app
+  become: yes
+
+  tasks:
     synchronize:
       mode: pull
       compress: yes
