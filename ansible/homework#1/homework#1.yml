@@ -40,12 +40,8 @@
     apt:
       name: tomcat9
       state: present
-  
-- name: Synchronization using rsync protocol
-  hosts: app
-  become: yes
-
-  tasks:
+      
+  - name: Pull artifact to webapps
     synchronize:
       mode: pull
       compress: yes
