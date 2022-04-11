@@ -37,6 +37,5 @@
         project_src: /tmp/homework/docker/homework#2/
         files:
           - docker-compose.yml
-        vars:
-          ansible_python_interpreter: /bin/python3
+        ansible_python_interpreter: /bin/python3
 
