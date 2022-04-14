@@ -8,5 +8,5 @@
 
 - name: Build application
   command: 
-    chdir: {{work_folder}} 
+    chdir: "{{work_folder}}" 
     cmd: mvn package -Dmaven.test.skip -T 1C
