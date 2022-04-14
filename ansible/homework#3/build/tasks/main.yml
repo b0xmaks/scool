@@ -5,12 +5,12 @@
 
 - name: Clone a github repository
   git:
-  repo: {{git_repo_app}}
-  dest: {{work_folder}}
+  repo: {{ git_repo_app }}
+  dest: {{ work_folder }}
   clone: yes
   update: yes
 
 - name: Build application
   command:
-    chdir: {{work_folder}}
+    chdir: {{ work_folder }}
     cmd: mvn package -Dmaven.test.skip -T 1C
