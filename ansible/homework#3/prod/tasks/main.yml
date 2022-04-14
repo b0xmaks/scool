@@ -5,20 +5,15 @@
 
 - name: get artifact
   synchronize:
-    src: 10.70.70.27/tmp/homework/target/hello-1.0.war
-    dest: /tmp/hello-1.0.war
+    hosts: 10.70.70.27
+    src: /tmp/homework/target/
+    dest: /tmp/
   delegate_to: localhost
 
 - name: send artifact
   synchronize:
-    src: /tmp/hello-1.0.war
-    dest: 10.70.70.28/var/lib/tomcat9/webapps/hello-1.0.war
+    hosts: 10.70.70.28
+    src: /tmp/
+    dest: /var/lib/tomcat9/webapps/
   delegate_to: localhost
 
-
-#- name: copy artifact to prod
-#  synchronize: 
-#    src: "10.70.70.27{{readyapp_folder}}" 
-#    dest: "{{ work_folder }}"
-#    mode: pull 
-#  delegate_to: 10.70.70.28
