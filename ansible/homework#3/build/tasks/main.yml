@@ -14,6 +14,6 @@
 - name: get artifact
   synchronize:
     mode: pull
-    src: rsync:10.70.70.27/tmp/homework/target/
+    src: 10.70.70.27/tmp/homework/target/
     dest: /tmp/
   delegate_to: localhost
