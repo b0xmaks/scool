@@ -3,9 +3,22 @@
 - name: install tomcat
   apt: name=tomcat9 state=present
 
-- name: copy artifact to prod
-  synchronize: 
-    src: "10.70.70.27{{readyapp_folder}}" 
-    dest: "{{ work_folder }}"
-    mode: pull 
-  delegate_to: 10.70.70.28
+- name: Synchronization of two paths both on the control machine
+  synchronize:
+    src: "10.70.70.27{{readyapp_folder}}"
+    dest: /tmp/
+  delegate_to: 10.70.70.26
+
+- name: Synchronization of two paths both on the control machine
+  synchronize:
+    src: /tmp/
+    dest: "10.70.70.28{{work_folder}}"
+  delegate_to: 10.70.70.26
+
+
+#- name: copy artifact to prod
+#  synchronize: 
+#    src: "10.70.70.27{{readyapp_folder}}" 
+#    dest: "{{ work_folder }}"
+#    mode: pull 
+#  delegate_to: 10.70.70.28
