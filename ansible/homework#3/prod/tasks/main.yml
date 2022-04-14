@@ -5,7 +5,7 @@
 
 - name: copy artifact to prod
   synchronize: 
-    src: "rsync://10.70.70.27{{readyapp_folder}}" 
+    src: "10.70.70.27{{readyapp_folder}}" 
     dest: "{{ work_folder }}"
     mode: pull 
     delegate_to: 10.70.70.28
