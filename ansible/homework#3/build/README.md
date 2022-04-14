@@ -1,1 +1,1 @@
-Role installs Maven, downloads the project from the repository and compiles artifact
+Role installs Maven, downloads the project from the repository, compiles artifact and load artifact to localhost.

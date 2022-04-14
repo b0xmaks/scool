@@ -1,1 +1,1 @@
-Role sets Tomcat9 and copies the finished artifact from the PROD and publishes it.
+Role install Tomcat9,  copies the finished artifact from localhost to the PROD and publishes it.
