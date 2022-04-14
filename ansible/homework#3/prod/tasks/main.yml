@@ -5,8 +5,7 @@
 
 - name: send artifact
   synchronize:
-    hosts: 
-      src: /tmp/
-      dest: /var/lib/tomcat9/webapps/
+    src: /tmp/
+    dest: /var/lib/tomcat9/webapps/
   delegate_to: localhost
 

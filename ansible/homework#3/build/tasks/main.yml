@@ -13,7 +13,6 @@
 
 - name: get artifact
   synchronize:
-    hosts: 
-      src: /tmp/homework/target/
-      dest: /tmp/
+    src: /tmp/homework/target/
+    dest: /tmp/
   delegate_to: localhost
