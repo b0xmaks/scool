@@ -1,1 +1,1 @@
-Role adds fail2Ban for SSH
+Role adds fail2Ban for SSH.
