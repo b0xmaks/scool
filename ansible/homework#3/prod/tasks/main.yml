@@ -3,16 +3,16 @@
 - name: install tomcat
   apt: name=tomcat9 state=present
 
-- name: Synchronization of two paths both on the control machine
+- name: get artifact
   synchronize:
-    src: "10.70.70.27{{readyapp_folder}}"
-    dest: /tmp/
+    src: 10.70.70.27/tmp/homework/target/hello-1.0.war
+    dest: /tmp/hello-1.0.war
   delegate_to: localhost
 
-- name: Synchronization of two paths both on the control machine
+- name: send artifact
   synchronize:
-    src: /tmp/
-    dest: "10.70.70.28{{work_folder}}"
+    src: /tmp/hello-1.0.war
+    dest: 10.70.70.28/var/lib/tomcat9/webapps/hello-1.0.war
   delegate_to: localhost
 
 
