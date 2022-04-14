@@ -6,6 +6,9 @@
     state: present
 
 - name: copy artifact to prod
-  synchronize: mode=pull src=rsync://10.70.70.27/{{readyapp_folder}} dest={{work_folder}}
+  synchronize: 
+    mode: pull 
+    src: rsync://10.70.70.27/{{readyapp_folder}} 
+    dest: {{work_folder}}
     notify:
       - restart tomcat9
