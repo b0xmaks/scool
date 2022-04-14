@@ -1,0 +1,16 @@
+---
+- name: config build
+  hosts: bld
+  become: yes
+  roles:
+    - common
+    - build
+    - security
+
+- name: config prod
+  hosts: prod
+  become: yes
+  roles:
+    - common
+    - prod
+    - security
