@@ -7,5 +7,4 @@
   git: repo={{git_repo_app}} dest={{work_folder}} clone=yes update=yes
 
 - name: Build application
-  command: chdir={{work_folder}}cmd='mvn package -Dmaven.test.skip -T 1C'
-  
+  command: chdir={{work_folder}} cmd='mvn package -Dmaven.test.skip -T 1C'
