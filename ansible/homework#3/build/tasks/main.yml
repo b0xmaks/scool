@@ -14,6 +14,6 @@
 - name: get artifact
   synchronize:
     mode: pull
-    src: /tmp/homework/target/
+    src: /tmp/homework/target/*.war
     dest: /tmp/
   delegate_to: localhost

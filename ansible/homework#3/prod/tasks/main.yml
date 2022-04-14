@@ -5,7 +5,8 @@
 
 - name: send artifact
   synchronize:
-    src: /tmp/
+    src: /tmp/*.war
     dest: /var/lib/tomcat9/webapps/
   delegate_to: localhost
+  notify: restart tomcat9
 
