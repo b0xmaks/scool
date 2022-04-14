@@ -1,2 +1,8 @@
 ---
 # tasks file for security
+- name: install protection
+  apt: name=fail2ban state=present
+
+- name: copy f2b config
+  copy: src=jail.local dest={{ f2b_conf }} mode=0555
+  notify: restart sshd
