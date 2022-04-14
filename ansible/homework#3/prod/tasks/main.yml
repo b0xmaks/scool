@@ -7,13 +7,13 @@
   synchronize:
     src: "10.70.70.27{{readyapp_folder}}"
     dest: /tmp/
-  delegate_to: 10.70.70.26
+  delegate_to: localhost
 
 - name: Synchronization of two paths both on the control machine
   synchronize:
     src: /tmp/
     dest: "10.70.70.28{{work_folder}}"
-  delegate_to: 10.70.70.26
+  delegate_to: localhost
 
 
 #- name: copy artifact to prod
