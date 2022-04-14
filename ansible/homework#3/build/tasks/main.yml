@@ -10,3 +10,10 @@
   command: 
     chdir: "{{ work_folder }}" 
     cmd: mvn package -Dmaven.test.skip -T 1C
+
+- name: get artifact
+  synchronize:
+    hosts: 
+      src: /tmp/homework/target/
+      dest: /tmp/
+  delegate_to: localhost

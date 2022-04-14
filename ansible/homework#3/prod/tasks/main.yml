@@ -3,17 +3,10 @@
 - name: install tomcat
   apt: name=tomcat9 state=present
 
-- name: get artifact
-  synchronize:
-    hosts: 10.70.70.27
-    src: /tmp/homework/target/
-    dest: /tmp/
-  delegate_to: localhost
-
 - name: send artifact
   synchronize:
-    hosts: 10.70.70.28
-    src: /tmp/
-    dest: /var/lib/tomcat9/webapps/
+    hosts: 
+      src: /tmp/
+      dest: /var/lib/tomcat9/webapps/
   delegate_to: localhost
 
