@@ -1,2 +1,4 @@
 ---
 # defaults file for build
+work_folder: /tmp/homework/
+git_repo_app: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git

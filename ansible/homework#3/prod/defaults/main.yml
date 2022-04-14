@@ -1,2 +1,3 @@
 ---
 # defaults file for prod
+readyapp_folder: /tmp/homework/target/
