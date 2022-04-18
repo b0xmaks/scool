@@ -1,7 +1,8 @@
-nexus:
-  image: sonatype/nexus3
-  ports:
+-name nexus:
+    image: sonatype/nexus3
+    restart: always
+    ports:
     - "8081:8081"
     - "8123:8123"
-  volumes:
+    volumes:
     - ./nexus-data:/nexus-data
