@@ -4,4 +4,4 @@ nexus:
     - "8081:8081"
     - "8123:8123"
   volumes:
-    - ./data:/nexus-data
+    - chown -R 200 ./nexus-data:/nexus-data
