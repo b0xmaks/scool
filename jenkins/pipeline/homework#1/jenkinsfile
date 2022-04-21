@@ -9,7 +9,13 @@ pipeline {
             git(url: 'https://github.com/b0xmaks/boxfuse.git')
             sh 'cd ./boxfuse-sample-java-war-hello'
             sh 'mvn package -Dmaven.test.skip -T 1C'
+            sh 'cd ..'
         }
     }
-        
+        stage ('Get docker-compose.yml && make docker image') {
+            git(url: 'https://github.com/b0xmaks/scool.git')
+            sh 'cd ./scool/jenkins/pipeline/homework#1/'
+            sh "docker-compose up -d"
+'
+        }
 }
