@@ -6,15 +6,19 @@ pipeline {
     }
     stages {
         stage ('Get app from repository && build app') {
-            git(url: 'https://github.com/b0xmaks/boxfuse.git')
-            sh 'cd ./boxfuse-sample-java-war-hello'
-            sh 'mvn package -Dmaven.test.skip -T 1C'
-            sh 'cd ..'
+            steps {
+                git(url: 'https://github.com/b0xmaks/boxfuse.git')
+                sh 'cd ./boxfuse-sample-java-war-hello'
+                sh 'mvn package -Dmaven.test.skip -T 1C'
+                sh 'cd ..'
+            }
         }
     }
         stage ('Get config && make docker image') {
-            git(url: 'https://github.com/b0xmaks/scool.git')
-            sh 'cd ./scool/jenkins/pipeline/homework#1/prod_img/ && docker build --tag=appimage .'
-            sh '''docker tag slaveimage 10.70.70.30:8123/appimage && docker push 10.70.70.30:8123/appimage'''
+            steps {
+                git(url: 'https://github.com/b0xmaks/scool.git')
+                sh 'cd ./scool/jenkins/pipeline/homework#1/prod_img/ && docker build --tag=appimage .'
+                sh '''docker tag slaveimage 10.70.70.30:8123/appimage && docker push 10.70.70.30:8123/appimage'''
+            }
         }
 }
