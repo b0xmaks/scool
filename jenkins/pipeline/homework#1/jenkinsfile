@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image '10.70.70.30:8123/masterimage'
+            image '10.70.70.30:8123/buildimage'
         }
     }
     stages {
@@ -12,10 +12,9 @@ pipeline {
             sh 'cd ..'
         }
     }
-        stage ('Get docker-compose.yml && make docker image') {
+        stage ('Get config && make docker image') {
             git(url: 'https://github.com/b0xmaks/scool.git')
-            sh 'cd ./scool/jenkins/pipeline/homework#1/'
-            sh "docker-compose up -d"
-'
+            sh 'cd ./scool/jenkins/pipeline/homework#1/prod_img/ && docker build --tag=appimage .'
+            sh '''docker tag slaveimage 10.70.70.30:8123/appimage && docker push 10.70.70.30:8123/appimage'''
         }
 }
