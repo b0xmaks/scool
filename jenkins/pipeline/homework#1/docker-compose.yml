@@ -1,0 +1,13 @@
+---
+version: '3.8'
+services:
+  run:
+    image: tomcat:9.0.20-jre8-alpine
+    ports:
+      - "8080:8080"
+    depends_on:
+      - bld
+    volumes:
+      - type: bind
+        source: ./boxfuse-sample-java-war-hello
+        target: /usr/local/tomcat/webapps/  

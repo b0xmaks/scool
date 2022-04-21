@@ -1,7 +1,15 @@
 pipeline {
     agent {
         docker {
-            image 
+            image '10.70.70.30:8123/masterimage'
         }
     }
+    stages {
+        stage ('Get app from repository && build app') {
+            git(url: 'https://github.com/b0xmaks/boxfuse.git')
+            sh 'cd ./boxfuse-sample-java-war-hello'
+            sh 'mvn package -Dmaven.test.skip -T 1C'
+        }
+    }
+        
 }
