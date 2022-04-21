@@ -9,7 +9,7 @@ pipeline {
         stage('Get app from repository && build app') {
             steps {
                 git(url: 'https://github.com/b0xmaks/boxfuse.git')
-                sh 'cd ${WORKSPACE}/boxfuse-sample-java-war-hello'
+                sh 'cd ${WORKSPACE}/boxfuse/'
                 sh 'mvn package -Dmaven.test.skip -T 1C'
                 sh 'cd ..'
             }
