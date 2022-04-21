@@ -9,5 +9,5 @@ services:
       - bld
     volumes:
       - type: bind
-        source: ./boxfuse-sample-java-war-hello
+        source: ./boxfuse-sample-java-war-hello/target/
         target: /usr/local/tomcat/webapps/  
