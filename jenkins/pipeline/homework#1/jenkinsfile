@@ -1,24 +1,26 @@
 pipeline {
     agent {
+
         docker {
             image '10.70.70.30:8123/buildimage'
         }
     }
     stages {
-        stage ('Get app from repository && build app') {
+        stage('Get app from repository && build app') {
             steps {
                 git(url: 'https://github.com/b0xmaks/boxfuse.git')
-                sh 'cd ./boxfuse-sample-java-war-hello'
+                sh 'cd ${WORKSPACE}/boxfuse-sample-java-war-hello'
                 sh 'mvn package -Dmaven.test.skip -T 1C'
                 sh 'cd ..'
             }
         }
-    }
-        stage ('Get config && make docker image') {
+
+        stage('Get config && make docker image') {
             steps {
                 git(url: 'https://github.com/b0xmaks/scool.git')
-                sh 'cd ./scool/jenkins/pipeline/homework#1/prod_img/ && docker build --tag=appimage .'
+                sh 'cd ${WORKSPACE}/scool/jenkins/pipeline/homework#1/prod_img/ && docker build --tag=appimage .'
                 sh '''docker tag slaveimage 10.70.70.30:8123/appimage && docker push 10.70.70.30:8123/appimage'''
             }
         }
+    }
 }
