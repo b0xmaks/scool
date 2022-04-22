@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tomcat-deployment
+  labels:
+    app: dockercloud/hello-world
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dockercloud/hello-world
+  template:
+    metadata:
+      labels:
+        app: dockercloud/hello-world
+    spec:
+      contayners:
+      - name: tomcat
+        image: dockercloud/hello-world
+        ports:
+        - containerPort: 80
