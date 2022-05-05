@@ -9,10 +9,11 @@ terraform {
 
 provider "yandex" {
   token     = "AQAAAAAGNKXEAATuwcIVyOyPpkhwp3iFVD_zW0w"
-  cloud_id  = "b1gfltbs1jo2gj8g55rp"
-  folder_id = "default"
-  zone      = "ru-central-b"
+  cloud_id  = "b1g055n8e3mua2rcu67m"
+  folder_id = "b1gfltbs1jo2gj8g55rp"
+  zone      = "ru-central1-a"
 }
+
 
 resource "yandex_compute_instance" "vm-1" {
   name = "terraform1"
@@ -24,14 +25,14 @@ resource "yandex_compute_instance" "vm-1" {
 
   boot_disk {
     initialize_params {
-      image_id = "fd8fte6bebi857ortlja"
+      image_id = "fd82re2tpfl4chaupeuf"
     }
   }
 
-  network_interface {
-    subnet_id = yandex_vpc_subnet.subnet-1.id
-    nat       = true
-  }
+network_interface {
+  subnet_id = yandex_vpc_subnet.subnet-1.id
+  nat       = true
+}
 
   metadata = {
     ssh-keys = "ubuntu:${file("~/.ssh/id_rsa.pub")}"
@@ -48,7 +49,7 @@ resource "yandex_compute_instance" "vm-2" {
 
   boot_disk {
     initialize_params {
-      image_id = "fd8fte6bebi857ortlja"
+      image_id = "fd82re2tpfl4chaupeuf"
     }
   }
 
@@ -68,7 +69,7 @@ resource "yandex_vpc_network" "network-1" {
 
 resource "yandex_vpc_subnet" "subnet-1" {
   name           = "subnet1"
-  zone           = "ru-central1-b"
+  zone           = "ru-central1-a"
   network_id     = yandex_vpc_network.network-1.id
   v4_cidr_blocks = ["192.168.10.0/24"]
 }
