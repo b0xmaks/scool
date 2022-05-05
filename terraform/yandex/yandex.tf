@@ -13,6 +13,7 @@ provider "yandex" {
   folder_id = "default"
   zone      = "ru-central-b"
 }
+
 resource "yandex_compute_instance" "vm-1" {
   name = "terraform1"
 
@@ -28,7 +29,7 @@ resource "yandex_compute_instance" "vm-1" {
   }
 
   network_interface {
-    subnet_id = yandex_vpc_subnet.subnet-1.id
+    subnet_id = default.default-ru-central1-b.id
     nat       = true
   }
 
