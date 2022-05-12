@@ -16,7 +16,7 @@ provider "yandex" {
 
 
 resource "yandex_compute_instance" "vm-1" {
-  name = "terraform1"
+  name = "demo1"
 
   resources {
     cores  = 2
@@ -25,7 +25,7 @@ resource "yandex_compute_instance" "vm-1" {
 
   boot_disk {
     initialize_params {
-      image_id = "fd82re2tpfl4chaupeuf"
+      image_id = "fd86t95gnivk955ulbq8"
     }
   }
 
@@ -40,7 +40,7 @@ network_interface {
 }
 
 resource "yandex_compute_instance" "vm-2" {
-  name = "terraform2"
+  name = "demo2"
 
   resources {
     cores  = 4
@@ -49,7 +49,7 @@ resource "yandex_compute_instance" "vm-2" {
 
   boot_disk {
     initialize_params {
-      image_id = "fd82re2tpfl4chaupeuf"
+      image_id = "fd86t95gnivk955ulbq8"
     }
   }
 
