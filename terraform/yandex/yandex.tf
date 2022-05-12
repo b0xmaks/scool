@@ -26,6 +26,9 @@ resource "yandex_compute_instance" "vm-1" {
   boot_disk {
     initialize_params {
       image_id = "fd86t95gnivk955ulbq8"
+      type     = "network-ssd"
+      size = 20
+
     }
   }
 
@@ -50,6 +53,9 @@ resource "yandex_compute_instance" "vm-2" {
   boot_disk {
     initialize_params {
       image_id = "fd86t95gnivk955ulbq8"
+      type     = "network-ssd"
+      size = 20
+
     }
   }
 
