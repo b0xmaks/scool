@@ -12,6 +12,7 @@ provider "yandex" {
   cloud_id  = "b1g055n8e3mua2rcu67m"
   folder_id = "b1gfltbs1jo2gj8g55rp"
   zone      = "ru-central1-a"
+  platform_id = "standard-v1"
 }
 
 
