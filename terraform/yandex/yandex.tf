@@ -12,12 +12,13 @@ provider "yandex" {
   cloud_id  = "b1g055n8e3mua2rcu67m"
   folder_id = "b1gfltbs1jo2gj8g55rp"
   zone      = "ru-central1-a"
-  platform_id = "standard-v1"
 }
 
 
 resource "yandex_compute_instance" "vm-1" {
   name = "demo1"
+  platform_id = "standard-v3"
+  zone        = "ru-central1-a"
 
   resources {
     cores  = 2
@@ -45,6 +46,8 @@ network_interface {
 
 resource "yandex_compute_instance" "vm-2" {
   name = "demo2"
+  platform_id = "standard-v3"
+  zone        = "ru-central1-a"
 
   resources {
     cores  = 4
